@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Equipment & Maintenance System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #333; direction: ltr; }
+
+        /* Sidebar */
+        .sidebar { position: fixed; left: 0; top: 0; width: 240px; height: 100vh; background: #1a237e; color: white; padding-top: 20px; z-index: 100; }
+        .sidebar .logo { text-align: center; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px; }
+        .sidebar .logo h2 { font-size: 16px; color: #bbdefb; }
+        .sidebar .logo h3 { font-size: 12px; color: #7986cb; margin-top: 4px; }
+        .sidebar nav a { display: flex; align-items: center; padding: 12px 20px; color: #b0bec5; text-decoration: none; font-size: 14px; transition: all 0.3s; cursor: pointer; }
+        .sidebar nav a:hover, .sidebar nav a.active { background: rgba(255,255,255,0.1); color: white; border-left: 3px solid #42a5f5; }
+        .sidebar nav a .icon { width: 24px; margin-right: 10px; text-align: center; font-size: 16px; }
+
+        /* Main content */
+        .main { margin-left: 240px; padding: 20px; }
+        .header { background: white; padding: 15px 25px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 22px; color: #1a237e; }
+        .header .user-info { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #666; }
+
+        /* Cards */
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .card .card-icon { font-size: 28px; margin-bottom: 8px; }
+        .card .card-value { font-size: 28px; font-weight: 700; color: #1a237e; }
+        .card .card-label { font-size: 13px; color: #888; margin-top: 4px; }
+        .card.red .card-value { color: #c62828; }
+        .card.green .card-value { color: #2e7d32; }
+        .card.orange .card-value { color: #e65100; }
+
+        /* Table */
+        .table-container { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 20px; }
+        .table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .table-header h2 { font-size: 18px; color: #333; }
+        .toolbar { display: flex; gap: 10px; }
+        .btn { padding: 8px 16px; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 500; }
+        .btn-primary { background: #1a237e; color: white; }
+        .btn-success { background: #2e7d32; color: white; }
+        .btn-danger { background: #c62828; color: white; }
+        .btn-outline { background: white; border: 1px solid #ddd; color: #555; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #f5f5f5; padding: 10px 12px; text-align: left; font-weight: 600; color: #555; border-bottom: 2px solid #e0e0e0; }
+        td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+        tr:hover { background: #f8f9ff; }
+
+        .badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+        .badge-green { background: #e8f5e9; color: #2e7d32; }
+        .badge-red { background: #fce4ec; color: #c62828; }
+        .badge-orange { background: #fff3e0; color: #e65100; }
+        .badge-blue { background: #e3f2fd; color: #1565c0; }
+        .badge-gray { background: #f5f5f5; color: #616161; }
+
+        /* Search */
+        .search-bar { display: flex; gap: 10px; margin-bottom: 15px; }
+        .search-bar input, .search-bar select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; }
+        .search-bar input { flex: 1; }
+
+        /* Form */
+        .form-container { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 20px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; }
+        .form-group input, .form-group select, .form-group textarea { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-actions { margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end; }
+
+        /* Screen navigation */
+        .screen { display: none; }
+        .screen.active { display: block; }
+
+        /* Login screen */
+        .login-wrapper { display: flex; height: 100vh; }
+        .login-left { flex: 1; background: linear-gradient(135deg, #1a237e, #283593); display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 40px; }
+        .login-left h1 { font-size: 32px; margin-bottom: 10px; }
+        .login-left p { font-size: 16px; color: #bbdefb; text-align: center; max-width: 400px; }
+        .login-right { flex: 1; display: flex; justify-content: center; align-items: center; background: white; }
+        .login-form { width: 350px; }
+        .login-form h2 { font-size: 24px; margin-bottom: 25px; color: #1a237e; }
+        .login-form .form-group { margin-bottom: 15px; }
+        .login-form .form-group input { width: 100%; padding: 12px; }
+        .login-form .btn { width: 100%; padding: 12px; font-size: 15px; }
+
+        .screen-label { position: fixed; bottom: 20px; right: 20px; background: #1a237e; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; z-index: 999; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+        .nav-buttons { position: fixed; bottom: 20px; left: 260px; display: flex; gap: 10px; z-index: 999; }
+        .nav-buttons .btn { box-shadow: 0 2px 8px rgba(0,0,0,0.2); padding: 10px 20px; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation buttons -->
+<div class="nav-buttons">
+    <button class="btn btn-primary" onclick="prevScreen()">Previous Screen</button>
+    <button class="btn btn-success" onclick="nextScreen()">Next Screen</button>
+</div>
+<div class="screen-label" id="screenLabel">Screen 1/9: Login</div>
+
+<!-- SCREEN 1: Login -->
+<div class="screen active" id="screen1">
+    <div class="login-wrapper">
+        <div class="login-left">
+            <h1>Restaurant Equipment & Maintenance</h1>
+            <p>Complete management system for restaurant equipment tracking, maintenance scheduling, spare parts inventory, and service contracts</p>
+        </div>
+        <div class="login-right">
+            <div class="login-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter your username" value="admin">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" value="********">
+                </div>
+                <button class="btn btn-primary" onclick="showScreen(2)">Sign In</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 2: Dashboard -->
+<div class="screen" id="screen2">
+    <div class="sidebar">
+        <div class="logo">
+            <h2>Equipment & Maintenance</h2>
+            <h3>Restaurant Management System</h3>
+        </div>
+        <nav>
+            <a class="active"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header">
+            <h1>Dashboard</h1>
+            <div class="user-info">Welcome, Admin | <a href="#" onclick="showScreen(1)">Logout</a></div>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">&#9881;</div><div class="card-value">487</div><div class="card-label">Total Equipment</div></div>
+            <div class="card green"><div class="card-icon">&#9989;</div><div class="card-value">412</div><div class="card-label">Active Equipment</div></div>
+            <div class="card orange"><div class="card-icon">&#128295;</div><div class="card-value">38</div><div class="card-label">Under Repair</div></div>
+            <div class="card red"><div class="card-icon">&#9888;</div><div class="card-value">12</div><div class="card-label">Critical Maintenance</div></div>
+        </div>
+        <div class="cards">
+            <div class="card"><div class="card-icon">&#128100;</div><div class="card-value">45</div><div class="card-label">Active Technicians</div></div>
+            <div class="card"><div class="card-icon">&#128230;</div><div class="card-value">23</div><div class="card-label">Low Stock Parts</div></div>
+            <div class="card green"><div class="card-icon">&#128196;</div><div class="card-value">18</div><div class="card-label">Active Contracts</div></div>
+            <div class="card"><div class="card-icon">&#128176;</div><div class="card-value">$47,230</div><div class="card-label">Monthly Maintenance Cost</div></div>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Recent Maintenance Operations</h2>
+                <button class="btn btn-outline" onclick="showScreen(4)">View All</button>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Equipment</th><th>Type</th><th>Technician</th><th>Priority</th><th>Status</th><th>Date</th></tr>
+                <tr><td>M-1847</td><td>Industrial Oven #3</td><td>Emergency</td><td>Yossi Mizrahi</td><td><span class="badge badge-red">Critical</span></td><td><span class="badge badge-orange">In Progress</span></td><td>2026-03-17</td></tr>
+                <tr><td>M-1846</td><td>Walk-in Freezer #1</td><td>Preventive</td><td>Avi Goldstein</td><td><span class="badge badge-blue">Medium</span></td><td><span class="badge badge-green">Completed</span></td><td>2026-03-16</td></tr>
+                <tr><td>M-1845</td><td>Dishwasher #5</td><td>Corrective</td><td>Noa Ben-David</td><td><span class="badge badge-orange">High</span></td><td><span class="badge badge-blue">Scheduled</span></td><td>2026-03-18</td></tr>
+                <tr><td>M-1844</td><td>Exhaust Hood #2</td><td>Inspection</td><td>Tal Cohen</td><td><span class="badge badge-gray">Low</span></td><td><span class="badge badge-green">Completed</span></td><td>2026-03-15</td></tr>
+                <tr><td>M-1843</td><td>Coffee Machine #1</td><td>Corrective</td><td>Lior Peretz</td><td><span class="badge badge-blue">Medium</span></td><td><span class="badge badge-green">Completed</span></td><td>2026-03-14</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 3: Equipment Management -->
+<div class="screen" id="screen3">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a class="active"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Equipment Management</h1><div class="user-info">487 total items</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by name, serial number, or model...">
+            <select><option>All Categories</option><option>Cooking</option><option>Refrigeration</option><option>Dishwashing</option><option>Food Prep</option><option>Ventilation</option><option>Safety</option><option>Beverage</option></select>
+            <select><option>All Status</option><option>Active</option><option>Under Repair</option><option>Decommissioned</option><option>In Storage</option></select>
+            <select><option>All Locations</option><option>Main Kitchen</option><option>Cold Storage</option><option>Dining Area</option><option>Bar</option></select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Equipment List</h2>
+                <div class="toolbar">
+                    <button class="btn btn-success" id="addEquipBtn">+ Add Equipment</button>
+                    <button class="btn btn-outline">Export CSV</button>
+                </div>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Name</th><th>Category</th><th>Model</th><th>Manufacturer</th><th>Serial #</th><th>Purchase Date</th><th>Warranty End</th><th>Cost</th><th>Status</th><th>Location</th><th>Actions</th></tr>
+                <tr><td>1</td><td>Industrial Oven</td><td>Cooking</td><td>OV-3000X</td><td>Rational</td><td>SN-000001</td><td>2022-01-15</td><td>2025-01-15</td><td>$15,000</td><td><span class="badge badge-green">Active</span></td><td>Main Kitchen</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+                <tr><td>2</td><td>Walk-in Freezer</td><td>Refrigeration</td><td>FZ-500</td><td>Hoshizaki</td><td>SN-000002</td><td>2021-06-20</td><td>2024-06-20</td><td>$25,000</td><td><span class="badge badge-orange">Under Repair</span></td><td>Cold Storage</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+                <tr><td>3</td><td>Commercial Dishwasher</td><td>Dishwashing</td><td>DW-200</td><td>Hobart</td><td>SN-000003</td><td>2023-03-10</td><td>2026-03-10</td><td>$8,500</td><td><span class="badge badge-green">Active</span></td><td>Main Kitchen</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+                <tr><td>4</td><td>Stand Mixer</td><td>Food Prep</td><td>KA-600</td><td>KitchenAid</td><td>SN-000004</td><td>2023-08-05</td><td>2025-08-05</td><td>$2,200</td><td><span class="badge badge-green">Active</span></td><td>Pastry Station</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+                <tr><td>5</td><td>Exhaust Hood</td><td>Ventilation</td><td>EH-1200</td><td>Electrolux</td><td>SN-000005</td><td>2020-11-12</td><td>2023-11-12</td><td>$6,800</td><td><span class="badge badge-green">Active</span></td><td>Main Kitchen</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+                <tr><td>6</td><td>Fire Suppression System</td><td>Safety</td><td>FS-PRO</td><td>Ansul</td><td>SN-000006</td><td>2021-02-28</td><td>2026-02-28</td><td>$12,000</td><td><span class="badge badge-green">Active</span></td><td>Main Kitchen</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button> <button class="btn btn-danger" style="padding:4px 8px;font-size:11px">Del</button></td></tr>
+            </table>
+        </div>
+        <!-- Add Equipment Form (hidden by default, conceptual) -->
+        <div class="form-container" id="addEquipForm" style="display:none;">
+            <h2 style="margin-bottom:15px;">Add New Equipment</h2>
+            <div class="form-grid">
+                <div class="form-group"><label>Equipment Name</label><input type="text" placeholder="e.g. Industrial Oven"></div>
+                <div class="form-group"><label>Category</label><select><option>Cooking</option><option>Refrigeration</option><option>Dishwashing</option><option>Food Prep</option><option>Ventilation</option><option>Safety</option><option>Beverage</option></select></div>
+                <div class="form-group"><label>Model</label><input type="text" placeholder="e.g. OV-3000X"></div>
+                <div class="form-group"><label>Manufacturer</label><input type="text" placeholder="e.g. Rational"></div>
+                <div class="form-group"><label>Serial Number</label><input type="text" placeholder="e.g. SN-000001"></div>
+                <div class="form-group"><label>Purchase Date</label><input type="date"></div>
+                <div class="form-group"><label>Warranty End Date</label><input type="date"></div>
+                <div class="form-group"><label>Purchase Cost ($)</label><input type="number" placeholder="e.g. 15000"></div>
+                <div class="form-group"><label>Status</label><select><option>Active</option><option>Under Repair</option><option>In Storage</option></select></div>
+                <div class="form-group"><label>Location</label><select><option>Main Kitchen</option><option>Cold Storage</option><option>Dining Area</option><option>Bar</option><option>Pastry Station</option></select></div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-outline" onclick="document.getElementById('addEquipForm').style.display='none'">Cancel</button>
+                <button class="btn btn-success">Save Equipment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 4: Maintenance Management -->
+<div class="screen" id="screen4">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a class="active"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Maintenance Management</h1><div class="user-info">20,000+ operations recorded</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search maintenance operations...">
+            <select><option>All Types</option><option>Preventive</option><option>Corrective</option><option>Emergency</option><option>Inspection</option></select>
+            <select><option>All Priorities</option><option>Low</option><option>Medium</option><option>High</option><option>Critical</option></select>
+            <select><option>All Status</option><option>Scheduled</option><option>In Progress</option><option>Completed</option><option>Cancelled</option></select>
+            <input type="date" title="From Date">
+            <input type="date" title="To Date">
+            <button class="btn btn-primary">Filter</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Maintenance Operations</h2>
+                <div class="toolbar">
+                    <button class="btn btn-success">+ Schedule Maintenance</button>
+                    <button class="btn btn-outline">Export</button>
+                </div>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Equipment</th><th>Technician</th><th>Type</th><th>Description</th><th>Scheduled</th><th>Completed</th><th>Cost</th><th>Priority</th><th>Status</th></tr>
+                <tr><td>1</td><td>Industrial Oven #3</td><td>Yossi Mizrahi</td><td>Preventive</td><td>Quarterly inspection of heating elements</td><td>2024-04-01</td><td>2024-04-01</td><td>$500</td><td><span class="badge badge-blue">Medium</span></td><td><span class="badge badge-green">Completed</span></td></tr>
+                <tr><td>2</td><td>Walk-in Freezer #1</td><td>Avi Goldstein</td><td>Emergency</td><td>Compressor failure - urgent repair</td><td>2024-05-12</td><td>2024-05-13</td><td>$2,500</td><td><span class="badge badge-red">Critical</span></td><td><span class="badge badge-green">Completed</span></td></tr>
+                <tr><td>3</td><td>Dishwasher #5</td><td>Noa Ben-David</td><td>Corrective</td><td>Water pump replacement</td><td>2024-06-20</td><td>-</td><td>$800</td><td><span class="badge badge-orange">High</span></td><td><span class="badge badge-blue">Scheduled</span></td></tr>
+                <tr><td>4</td><td>Exhaust Hood #2</td><td>Tal Cohen</td><td>Inspection</td><td>Fire safety compliance check</td><td>2024-07-01</td><td>2024-07-01</td><td>$200</td><td><span class="badge badge-gray">Low</span></td><td><span class="badge badge-green">Completed</span></td></tr>
+                <tr><td>5</td><td>Espresso Machine</td><td>Lior Peretz</td><td>Corrective</td><td>Replaced heating element and gaskets</td><td>2024-07-10</td><td>2024-07-11</td><td>$350</td><td><span class="badge badge-blue">Medium</span></td><td><span class="badge badge-green">Completed</span></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 5: Technicians -->
+<div class="screen" id="screen5">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a class="active"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Technician Management</h1><div class="user-info">500 technicians</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search technicians by name or specialization...">
+            <select><option>All Specializations</option><option>Refrigeration Systems</option><option>Electrical Systems</option><option>General Maintenance</option><option>HVAC and Ventilation</option><option>Plumbing</option><option>Gas Systems</option></select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Technician List</h2>
+                <button class="btn btn-success">+ Add Technician</button>
+            </div>
+            <table>
+                <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email</th><th>Specialization</th><th>Hire Date</th><th>Cert. Expiry</th><th>Rate/hr</th><th>Actions</th></tr>
+                <tr><td>1</td><td>Yossi</td><td>Mizrahi</td><td>050-1111111</td><td>yossi.m@techfix.co.il</td><td>Refrigeration Systems</td><td>2019-03-01</td><td>2026-03-01</td><td>$120</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>2</td><td>Avi</td><td>Goldstein</td><td>050-2222222</td><td>avi.g@techfix.co.il</td><td>Electrical Systems</td><td>2020-07-15</td><td>2027-07-15</td><td>$150</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>3</td><td>Noa</td><td>Ben-David</td><td>050-3333333</td><td>noa.bd@techfix.co.il</td><td>General Maintenance</td><td>2021-01-10</td><td>2026-01-10</td><td>$100</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>4</td><td>Tal</td><td>Cohen</td><td>050-4444444</td><td>tal.c@techfix.co.il</td><td>HVAC and Ventilation</td><td>2018-09-20</td><td>2025-09-20</td><td>$130</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>5</td><td>Lior</td><td>Peretz</td><td>050-5555555</td><td>lior.p@techfix.co.il</td><td>Gas Systems</td><td>2022-04-01</td><td>2027-04-01</td><td>$140</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 6: Spare Parts -->
+<div class="screen" id="screen6">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a class="active"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Spare Parts Inventory</h1><div class="user-info">500 part types | 23 low stock alerts</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search parts by name or description...">
+            <select><option>All Suppliers</option><option>Pro Kitchen Supply</option><option>Elite Equipment Co</option><option>CoolTech Solutions</option></select>
+            <select><option>All Stock Levels</option><option>In Stock</option><option>Low Stock</option><option>Out of Stock</option></select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Parts Inventory</h2>
+                <div class="toolbar">
+                    <button class="btn btn-success">+ Add Part</button>
+                    <button class="btn btn-outline">Reorder Report</button>
+                </div>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Name</th><th>Description</th><th>Unit Price</th><th>Stock Qty</th><th>Min Stock</th><th>Supplier</th><th>Status</th><th>Actions</th></tr>
+                <tr><td>1</td><td>Heating Element 3kW</td><td>OEM replacement part</td><td>$250</td><td>15</td><td>5</td><td>RestaurantEquip Ltd</td><td><span class="badge badge-green">In Stock</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>2</td><td>Compressor Motor</td><td>Heavy-duty industrial grade</td><td>$1,200</td><td>3</td><td>2</td><td>CoolTech Solutions</td><td><span class="badge badge-orange">Low Stock</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>3</td><td>Water Pump Assembly</td><td>Commercial-grade component</td><td>$350</td><td>8</td><td>3</td><td>ProKitchen Supply</td><td><span class="badge badge-green">In Stock</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>4</td><td>Door Gasket XL</td><td>Food-safe certified</td><td>$45</td><td>0</td><td>10</td><td>Elite Equipment Co</td><td><span class="badge badge-red">Out of Stock</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>5</td><td>Thermostat Pro</td><td>Precision-engineered replacement</td><td>$180</td><td>22</td><td>5</td><td>RestaurantEquip Ltd</td><td><span class="badge badge-green">In Stock</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 7: Suppliers -->
+<div class="screen" id="screen7">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a class="active"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Supplier Management</h1><div class="user-info">500 suppliers</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search suppliers by name or city...">
+            <select><option>All Cities</option><option>Tel Aviv</option><option>Jerusalem</option><option>Haifa</option><option>Beer Sheva</option></select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Supplier List</h2>
+                <button class="btn btn-success">+ Add Supplier</button>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Company Name</th><th>Contact Person</th><th>Phone</th><th>Email</th><th>Address</th><th>City</th><th>Parts Supplied</th><th>Actions</th></tr>
+                <tr><td>1</td><td>RestaurantEquip Ltd</td><td>David Cohen</td><td>03-1234567</td><td>david@restequip.co.il</td><td>15 Herzl St</td><td>Tel Aviv</td><td>47</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>2</td><td>CoolTech Solutions</td><td>Sarah Levi</td><td>02-9876543</td><td>sarah@cooltech.co.il</td><td>8 Jaffa Rd</td><td>Jerusalem</td><td>32</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>3</td><td>ProKitchen Supply</td><td>Moshe Dayan</td><td>04-5551234</td><td>moshe@prokitchen.co.il</td><td>22 HaNassi Blvd</td><td>Haifa</td><td>28</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+                <tr><td>4</td><td>Elite Equipment Co</td><td>Rachel Avraham</td><td>08-3332211</td><td>info@eliteequip.co.il</td><td>5 Rager Blvd</td><td>Beer Sheva</td><td>15</td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Edit</button></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 8: Contracts -->
+<div class="screen" id="screen8">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a class="active"><span class="icon">&#128196;</span> Contracts</a>
+            <a onclick="showScreen(9)"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Maintenance Contracts</h1><div class="user-info">18 active contracts</div></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search contracts...">
+            <select><option>All Types</option><option>Full Service</option><option>Parts Only</option><option>Labor Only</option><option>Premium</option><option>Emergency Only</option></select>
+            <select><option>All Status</option><option>Active</option><option>Expired</option><option>Pending</option></select>
+            <button class="btn btn-primary">Search</button>
+        </div>
+        <div class="table-container">
+            <div class="table-header">
+                <h2>Contract List</h2>
+                <button class="btn btn-success">+ New Contract</button>
+            </div>
+            <table>
+                <tr><th>ID</th><th>Supplier</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Annual Cost</th><th>Equipment Covered</th><th>Status</th><th>Actions</th></tr>
+                <tr><td>1</td><td>RestaurantEquip Ltd</td><td>Full Service</td><td>2024-01-01</td><td>2025-12-31</td><td>$12,000</td><td>15 items</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Details</button></td></tr>
+                <tr><td>2</td><td>CoolTech Solutions</td><td>Parts Only</td><td>2024-06-01</td><td>2025-05-31</td><td>$8,000</td><td>8 items</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Details</button></td></tr>
+                <tr><td>3</td><td>ProKitchen Supply</td><td>Premium</td><td>2024-03-15</td><td>2026-03-14</td><td>$15,000</td><td>22 items</td><td><span class="badge badge-green">Active</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Details</button></td></tr>
+                <tr><td>4</td><td>Elite Equipment Co</td><td>Emergency Only</td><td>2023-01-01</td><td>2024-12-31</td><td>$5,000</td><td>10 items</td><td><span class="badge badge-red">Expired</span></td><td><button class="btn btn-outline" style="padding:4px 8px;font-size:11px">Details</button></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- SCREEN 9: Reports -->
+<div class="screen" id="screen9">
+    <div class="sidebar">
+        <div class="logo"><h2>Equipment & Maintenance</h2><h3>Restaurant Management System</h3></div>
+        <nav>
+            <a onclick="showScreen(2)"><span class="icon">&#9632;</span> Dashboard</a>
+            <a onclick="showScreen(3)"><span class="icon">&#9881;</span> Equipment</a>
+            <a onclick="showScreen(4)"><span class="icon">&#128295;</span> Maintenance</a>
+            <a onclick="showScreen(5)"><span class="icon">&#128100;</span> Technicians</a>
+            <a onclick="showScreen(6)"><span class="icon">&#128230;</span> Spare Parts</a>
+            <a onclick="showScreen(7)"><span class="icon">&#127970;</span> Suppliers</a>
+            <a onclick="showScreen(8)"><span class="icon">&#128196;</span> Contracts</a>
+            <a class="active"><span class="icon">&#128202;</span> Reports</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="header"><h1>Reports & Analytics</h1><div class="user-info">System Reports</div></div>
+        <div class="cards">
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#128176;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Maintenance Cost Report</div>
+                <div class="card-label">Monthly and annual maintenance costs by equipment category, type of maintenance, and technician</div>
+            </div>
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#9881;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Equipment Status Summary</div>
+                <div class="card-label">Overview of all equipment by status, category, location, and warranty expiration</div>
+            </div>
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#128230;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Parts Usage Report</div>
+                <div class="card-label">Most used spare parts, stock levels, reorder alerts, and supplier performance</div>
+            </div>
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#128100;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Technician Workload</div>
+                <div class="card-label">Maintenance operations per technician, completion rates, average resolution time</div>
+            </div>
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#128196;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Contract Analysis</div>
+                <div class="card-label">Active contracts, coverage gaps, cost-benefit analysis, upcoming renewals</div>
+            </div>
+            <div class="card" style="cursor:pointer">
+                <div class="card-icon">&#128197;</div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:5px;">Maintenance Schedule</div>
+                <div class="card-label">Upcoming preventive maintenance, overdue inspections, and scheduling conflicts</div>
+            </div>
+        </div>
+        <div class="table-container">
+            <h2 style="margin-bottom:15px;">Sample Report: Monthly Maintenance Cost Summary</h2>
+            <table>
+                <tr><th>Month</th><th>Preventive</th><th>Corrective</th><th>Emergency</th><th>Inspection</th><th>Total</th><th>Operations</th></tr>
+                <tr><td>January 2024</td><td>$3,200</td><td>$5,100</td><td>$2,800</td><td>$900</td><td><strong>$12,000</strong></td><td>47</td></tr>
+                <tr><td>February 2024</td><td>$2,800</td><td>$4,200</td><td>$1,500</td><td>$1,100</td><td><strong>$9,600</strong></td><td>38</td></tr>
+                <tr><td>March 2024</td><td>$3,500</td><td>$6,300</td><td>$4,200</td><td>$800</td><td><strong>$14,800</strong></td><td>52</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentScreen = 1;
+    const totalScreens = 9;
+    const screenNames = ['', 'Login', 'Dashboard', 'Equipment Management', 'Maintenance Management', 'Technician Management', 'Spare Parts Inventory', 'Supplier Management', 'Contracts', 'Reports & Analytics'];
+
+    function showScreen(n) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById('screen' + n).classList.add('active');
+        currentScreen = n;
+        document.getElementById('screenLabel').textContent = `Screen ${n}/${totalScreens}: ${screenNames[n]}`;
+    }
+
+    function nextScreen() {
+        if (currentScreen < totalScreens) showScreen(currentScreen + 1);
+    }
+
+    function prevScreen() {
+        if (currentScreen > 1) showScreen(currentScreen - 1);
+    }
+
+    // Toggle add equipment form
+    document.getElementById('addEquipBtn')?.addEventListener('click', function() {
+        const form = document.getElementById('addEquipForm');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+</body>
+</html>
