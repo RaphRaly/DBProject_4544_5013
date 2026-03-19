@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="727pt" height="826pt" viewBox="0.00 0.00 727.00 826.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 822)">
+<title>Restaurant_DSD</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-822 723.48,-822 723.48,4 -4,4"/>
+<!-- Location -->
+<g id="node1" class="node">
+<title>Location</title>
+<text xml:space="preserve" text-anchor="start" x="654.47" y="-158.8" font-family="Arial" font-weight="bold" font-size="12.00">Location</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-140.4" font-family="Arial" text-decoration="underline" font-size="12.00">location_id</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-121" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-102.6" font-family="Arial" font-size="12.00">floor</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-84.2" font-family="Arial" font-size="12.00">section</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-65.8" font-family="Arial" font-size="12.00">description</text>
+<polygon fill="none" stroke="black" points="647.45,-59.2 647.45,-171.6 711.48,-171.6 711.48,-59.2 647.45,-59.2"/>
+</g>
+<!-- Supplier -->
+<g id="node2" class="node">
+<title>Supplier</title>
+<text xml:space="preserve" text-anchor="start" x="480.43" y="-746.4" font-family="Arial" font-weight="bold" font-size="12.00">Supplier</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-728" font-family="Arial" text-decoration="underline" font-size="12.00">supplier_id</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-708.6" font-family="Arial" font-size="12.00">company_name</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-690.2" font-family="Arial" font-size="12.00">contact_person</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-671.8" font-family="Arial" font-size="12.00">phone</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-653.4" font-family="Arial" font-size="12.00">email</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-635" font-family="Arial" font-size="12.00">address</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-616.6" font-family="Arial" font-size="12.00">city</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-598.2" font-family="Arial" font-size="12.00">country</text>
+<polygon fill="none" stroke="black" points="458.74,-591.6 458.74,-759.2 550.12,-759.2 550.12,-591.6 458.74,-591.6"/>
+</g>
+<!-- Equipment -->
+<g id="node3" class="node">
+<title>Equipment</title>
+<text xml:space="preserve" text-anchor="start" x="473.43" y="-214" font-family="Arial" font-weight="bold" font-size="12.00">Equipment</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-195.6" font-family="Arial" text-decoration="underline" font-size="12.00">equipment_id</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-176.2" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-157.8" font-family="Arial" font-size="12.00">category</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-139.4" font-family="Arial" font-size="12.00">model</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-121" font-family="Arial" font-size="12.00">manufacturer</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-102.6" font-family="Arial" font-size="12.00">serial_number</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-84.2" font-family="Arial" font-size="12.00">purchase_date</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-65.8" font-family="Arial" font-size="12.00">warranty_end_date</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-47.4" font-family="Arial" font-size="12.00">purchase_cost</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-29" font-family="Arial" font-size="12.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-10.6" font-family="Arial" font-size="12.00">location_id    (FK)</text>
+<polygon fill="none" stroke="black" points="449.41,-4 449.41,-226.8 559.45,-226.8 559.45,-4 449.41,-4"/>
+</g>
+<!-- Equipment&#45;&gt;Location -->
+<g id="edge1" class="edge">
+<title>Equipment-&gt;Location</title>
+<path fill="none" stroke="black" d="M567.13,-115.4C567.13,-115.4 630.03,-115.4 630.03,-115.4"/>
+<polygon fill="black" stroke="black" points="630.03,-118.2 638.03,-115.4 630.03,-112.6 630.03,-118.2"/>
+</g>
+<!-- Technician -->
+<g id="node4" class="node">
+<title>Technician</title>
+<text xml:space="preserve" text-anchor="start" x="473.09" y="-457.6" font-family="Arial" font-weight="bold" font-size="12.00">Technician</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-439.2" font-family="Arial" text-decoration="underline" font-size="12.00">technician_id</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-419.8" font-family="Arial" font-size="12.00">first_name</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-401.4" font-family="Arial" font-size="12.00">last_name</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-383" font-family="Arial" font-size="12.00">phone</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-364.6" font-family="Arial" font-size="12.00">email</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-346.2" font-family="Arial" font-size="12.00">specialization</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-327.8" font-family="Arial" font-size="12.00">hire_date</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-309.4" font-family="Arial" font-size="12.00">certification_expiry</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-291" font-family="Arial" font-size="12.00">hourly_rate</text>
+<polygon fill="none" stroke="black" points="451.74,-284.4 451.74,-470.4 557.12,-470.4 557.12,-284.4 451.74,-284.4"/>
+</g>
+<!-- SparePart -->
+<g id="node5" class="node">
+<title>SparePart</title>
+<text xml:space="preserve" text-anchor="start" x="269.05" y="-801.2" font-family="Arial" font-weight="bold" font-size="12.00">SparePart</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-782.8" font-family="Arial" text-decoration="underline" font-size="12.00">part_id</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-763.4" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-745" font-family="Arial" font-size="12.00">description</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-726.6" font-family="Arial" font-size="12.00">unit_price</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-708.2" font-family="Arial" font-size="12.00">stock_quantity</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-689.8" font-family="Arial" font-size="12.00">minimum_stock</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-671.4" font-family="Arial" font-size="12.00">supplier_id    (FK)</text>
+<polygon fill="none" stroke="black" points="242.05,-664.8 242.05,-814 352.75,-814 352.75,-664.8 242.05,-664.8"/>
+</g>
+<!-- SparePart&#45;&gt;Supplier -->
+<g id="edge2" class="edge">
+<title>SparePart-&gt;Supplier</title>
+<path fill="none" stroke="black" d="M360.64,-712C360.64,-712 441.48,-712 441.48,-712"/>
+<polygon fill="black" stroke="black" points="441.48,-714.8 449.48,-712 441.48,-709.2 441.48,-714.8"/>
+</g>
+<!-- MaintenanceContract -->
+<g id="node6" class="node">
+<title>MaintenanceContract</title>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-594.2" font-family="Arial" font-weight="bold" font-size="12.00">MaintenanceContract</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-575.8" font-family="Arial" text-decoration="underline" font-size="12.00">contract_id</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-556.4" font-family="Arial" font-size="12.00">supplier_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-538" font-family="Arial" font-size="12.00">start_date</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-519.6" font-family="Arial" font-size="12.00">end_date</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-501.2" font-family="Arial" font-size="12.00">annual_cost</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-482.8" font-family="Arial" font-size="12.00">contract_type</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-464.4" font-family="Arial" font-size="12.00">terms</text>
+<polygon fill="none" stroke="black" points="233.39,-457.8 233.39,-607 361.41,-607 361.41,-457.8 233.39,-457.8"/>
+</g>
+<!-- MaintenanceContract&#45;&gt;Supplier -->
+<g id="edge3" class="edge">
+<title>MaintenanceContract-&gt;Supplier</title>
+<path fill="none" stroke="black" d="M369.23,-599.3C369.23,-599.3 441.5,-599.3 441.5,-599.3"/>
+<polygon fill="black" stroke="black" points="441.5,-602.1 449.5,-599.3 441.5,-596.5 441.5,-602.1"/>
+</g>
+<!-- Maintenance -->
+<g id="node7" class="node">
+<title>Maintenance</title>
+<text xml:space="preserve" text-anchor="start" x="261.06" y="-386.8" font-family="Arial" font-weight="bold" font-size="12.00">Maintenance</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-368.4" font-family="Arial" text-decoration="underline" font-size="12.00">maintenance_id</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-349" font-family="Arial" font-size="12.00">equipment_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-330.6" font-family="Arial" font-size="12.00">technician_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-312.2" font-family="Arial" font-size="12.00">maintenance_type</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-293.8" font-family="Arial" font-size="12.00">description</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-275.4" font-family="Arial" font-size="12.00">scheduled_date</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-257" font-family="Arial" font-size="12.00">completion_date</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-238.6" font-family="Arial" font-size="12.00">cost</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-220.2" font-family="Arial" font-size="12.00">priority</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-201.8" font-family="Arial" font-size="12.00">status</text>
+<polygon fill="none" stroke="black" points="235.04,-195.2 235.04,-399.6 359.76,-399.6 359.76,-195.2 235.04,-195.2"/>
+</g>
+<!-- Maintenance&#45;&gt;Equipment -->
+<g id="edge4" class="edge">
+<title>Maintenance-&gt;Equipment</title>
+<path fill="none" stroke="black" d="M367.49,-211C367.49,-211 432.2,-211 432.2,-211"/>
+<polygon fill="black" stroke="black" points="432.2,-213.8 440.2,-211 432.2,-208.2 432.2,-213.8"/>
+</g>
+<!-- Maintenance&#45;&gt;Technician -->
+<g id="edge5" class="edge">
+<title>Maintenance-&gt;Technician</title>
+<path fill="none" stroke="black" d="M367.49,-342C367.49,-342 434.24,-342 434.24,-342"/>
+<polygon fill="black" stroke="black" points="434.24,-344.8 442.24,-342 434.24,-339.2 434.24,-344.8"/>
+</g>
+<!-- PartUsage -->
+<g id="node8" class="node">
+<title>PartUsage</title>
+<text xml:space="preserve" text-anchor="start" x="47.01" y="-541.8" font-family="Arial" font-weight="bold" font-size="12.00">PartUsage</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-523.4" font-family="Arial" text-decoration="underline" font-size="12.00">usage_id</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-504" font-family="Arial" font-size="12.00">maintenance_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-485.6" font-family="Arial" font-size="12.00">part_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-467.2" font-family="Arial" font-size="12.00">quantity_used</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-448.8" font-family="Arial" font-size="12.00">unit_cost</text>
+<polygon fill="none" stroke="black" points="8,-442.2 8,-554.6 145.39,-554.6 145.39,-442.2 8,-442.2"/>
+</g>
+<!-- PartUsage&#45;&gt;SparePart -->
+<g id="edge7" class="edge">
+<title>PartUsage-&gt;SparePart</title>
+<path fill="none" stroke="black" d="M76.48,-558.59C76.48,-629.98 76.48,-739.4 76.48,-739.4 76.48,-739.4 224.58,-739.4 224.58,-739.4"/>
+<polygon fill="black" stroke="black" points="224.58,-742.2 232.58,-739.4 224.58,-736.6 224.58,-742.2"/>
+</g>
+<!-- PartUsage&#45;&gt;Maintenance -->
+<g id="edge6" class="edge">
+<title>PartUsage-&gt;Maintenance</title>
+<path fill="none" stroke="black" d="M153.3,-446C217.06,-446 297.48,-446 297.48,-446 297.48,-446 297.48,-412.93 297.48,-412.93"/>
+<polygon fill="black" stroke="black" points="300.28,-412.93 297.48,-404.93 294.68,-412.93 300.28,-412.93"/>
+</g>
+<!-- EquipmentContract -->
+<g id="node9" class="node">
+<title>EquipmentContract</title>
+<text xml:space="preserve" text-anchor="start" x="21.03" y="-356.4" font-family="Arial" font-weight="bold" font-size="12.00">EquipmentContract</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-338" font-family="Arial" text-decoration="underline" font-size="12.00">equipment_id</text>
+<text xml:space="preserve" text-anchor="start" x="89.39" y="-338" font-family="Arial" font-size="12.00">    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-319.6" font-family="Arial" text-decoration="underline" font-size="12.00">contract_id</text>
+<text xml:space="preserve" text-anchor="start" x="76.04" y="-319.6" font-family="Arial" font-size="12.00">    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-300.2" font-family="Arial" font-size="12.00">coverage_details</text>
+<polygon fill="none" stroke="black" points="14.34,-293.6 14.34,-369.2 139.05,-369.2 139.05,-293.6 14.34,-293.6"/>
+</g>
+<!-- EquipmentContract&#45;&gt;Equipment -->
+<g id="edge8" class="edge">
+<title>EquipmentContract-&gt;Equipment</title>
+<path fill="none" stroke="black" d="M76.48,-289.79C76.48,-222.09 76.48,-95.6 76.48,-95.6 76.48,-95.6 432.23,-95.6 432.23,-95.6"/>
+<polygon fill="black" stroke="black" points="432.23,-98.4 440.23,-95.6 432.23,-92.8 432.23,-98.4"/>
+</g>
+<!-- EquipmentContract&#45;&gt;MaintenanceContract -->
+<g id="edge9" class="edge">
+<title>EquipmentContract-&gt;MaintenanceContract</title>
+<path fill="none" stroke="black" d="M146.84,-331.4C169.78,-331.4 189.48,-331.4 189.48,-331.4 189.48,-331.4 189.48,-506.2 189.48,-506.2 189.48,-506.2 215.9,-506.2 215.9,-506.2"/>
+<polygon fill="black" stroke="black" points="215.9,-509 223.9,-506.2 215.9,-503.4 215.9,-509"/>
+</g>
+</g>
+</svg>
