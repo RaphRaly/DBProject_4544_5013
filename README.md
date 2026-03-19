@@ -49,22 +49,22 @@ The application contains **9 screens**:
 ### Screen 1: Login
 Split-panel login screen with system branding on the left and authentication form on the right.
 
-![Login Screen](images/Stage1/screen_login.jpg)
+![Login Screen](images/Stage1/screen_login.png)
 
 ### Screen 2: Dashboard
 Main dashboard showing key metrics: total equipment count, active/under-repair equipment, critical maintenance alerts, active technicians, low-stock parts, active contracts, and monthly maintenance cost. Also displays a table of recent maintenance operations.
 
-![Dashboard](images/Stage1/screen_dashboard.jpg)
+![Dashboard](images/Stage1/screen_dashboard.png)
 
 ### Screen 3: Equipment Management
 Full CRUD interface for managing restaurant equipment. Includes search/filter by category, status, and location. Table displays all equipment attributes including purchase date, warranty end date, cost, and current status. Includes an "Add Equipment" form.
 
-![Equipment](images/Stage1/screen_equipment.jpg)
+![Equipment](images/Stage1/screen_equipment.png)
 
 ### Screen 4: Maintenance Management
 Interface for managing all maintenance operations. Filter by maintenance type (Preventive/Corrective/Emergency/Inspection), priority, status, and date range. Displays scheduled date, completion date, cost, and assigned technician.
 
-![Maintenance](images/Stage1/screen_maintenance.jpg)
+![Maintenance](images/Stage1/screen_maintenance.png)
 
 ### Screen 5: Technician Management
 Manage maintenance technicians with search by name and specialization filter. Displays hire date, certification expiry, hourly rate, and contact information.
