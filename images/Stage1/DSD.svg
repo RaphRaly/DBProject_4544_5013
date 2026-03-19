@@ -1,197 +1,181 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1543pt" height="624pt" viewBox="0.00 0.00 1543.00 624.00">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 620.4)">
-<title>DSD_Restaurant_Equipment_Maintenance</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-620.4 1538.92,-620.4 1538.92,4 -4,4"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="727pt" height="826pt" viewBox="0.00 0.00 727.00 826.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 822)">
+<title>Restaurant_DSD</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-822 723.48,-822 723.48,4 -4,4"/>
 <!-- Location -->
 <g id="node1" class="node">
 <title>Location</title>
-<polygon fill="lightyellow" stroke="black" points="1299.5,-279.9 1299.5,-359.9 1534.92,-359.9 1534.92,-279.9 1299.5,-279.9"/>
-<text xml:space="preserve" text-anchor="middle" x="1330.18" y="-316.3" font-family="Arial" font-size="12.00">Location</text>
-<polyline fill="none" stroke="black" points="1360.86,-279.9 1360.86,-359.9"/>
-<text xml:space="preserve" text-anchor="start" x="1368.86" y="-345.1" font-family="Arial" font-size="12.00">location_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="1368.86" y="-330.7" font-family="Arial" font-size="12.00"> name : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="1368.86" y="-316.3" font-family="Arial" font-size="12.00"> floor : INT</text>
-<text xml:space="preserve" text-anchor="start" x="1368.86" y="-301.9" font-family="Arial" font-size="12.00"> section : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="1368.86" y="-287.5" font-family="Arial" font-size="12.00"> description : VARCHAR(255)</text>
+<text xml:space="preserve" text-anchor="start" x="654.47" y="-158.8" font-family="Arial" font-weight="bold" font-size="12.00">Location</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-140.4" font-family="Arial" text-decoration="underline" font-size="12.00">location_id</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-121" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-102.6" font-family="Arial" font-size="12.00">floor</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-84.2" font-family="Arial" font-size="12.00">section</text>
+<text xml:space="preserve" text-anchor="start" x="650.45" y="-65.8" font-family="Arial" font-size="12.00">description</text>
+<polygon fill="none" stroke="black" points="647.45,-59.2 647.45,-171.6 711.48,-171.6 711.48,-59.2 647.45,-59.2"/>
 </g>
 <!-- Supplier -->
 <g id="node2" class="node">
 <title>Supplier</title>
-<polygon fill="lightyellow" stroke="black" points="914.92,-37.3 914.92,-160.5 1176.35,-160.5 1176.35,-37.3 914.92,-37.3"/>
-<text xml:space="preserve" text-anchor="middle" x="944.93" y="-95.3" font-family="Arial" font-size="12.00">Supplier</text>
-<polyline fill="none" stroke="black" points="974.94,-37.3 974.94,-160.5"/>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-145.7" font-family="Arial" font-size="12.00">supplier_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-131.3" font-family="Arial" font-size="12.00"> company_name : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-116.9" font-family="Arial" font-size="12.00"> contact_person : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-102.5" font-family="Arial" font-size="12.00"> phone : VARCHAR(20)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-88.1" font-family="Arial" font-size="12.00"> email : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-73.7" font-family="Arial" font-size="12.00"> address : VARCHAR(200)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-59.3" font-family="Arial" font-size="12.00"> city : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="982.94" y="-44.9" font-family="Arial" font-size="12.00"> country : VARCHAR(50)</text>
+<text xml:space="preserve" text-anchor="start" x="480.43" y="-746.4" font-family="Arial" font-weight="bold" font-size="12.00">Supplier</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-728" font-family="Arial" text-decoration="underline" font-size="12.00">supplier_id</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-708.6" font-family="Arial" font-size="12.00">company_name</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-690.2" font-family="Arial" font-size="12.00">contact_person</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-671.8" font-family="Arial" font-size="12.00">phone</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-653.4" font-family="Arial" font-size="12.00">email</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-635" font-family="Arial" font-size="12.00">address</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-616.6" font-family="Arial" font-size="12.00">city</text>
+<text xml:space="preserve" text-anchor="start" x="461.74" y="-598.2" font-family="Arial" font-size="12.00">country</text>
+<polygon fill="none" stroke="black" points="458.74,-591.6 458.74,-759.2 550.12,-759.2 550.12,-591.6 458.74,-591.6"/>
 </g>
 <!-- Equipment -->
 <g id="node3" class="node">
 <title>Equipment</title>
-<polygon fill="lightyellow" stroke="black" points="911.58,-236.7 911.58,-403.1 1179.68,-403.1 1179.68,-236.7 911.58,-236.7"/>
-<text xml:space="preserve" text-anchor="middle" x="948.27" y="-316.3" font-family="Arial" font-size="12.00">Equipment</text>
-<polyline fill="none" stroke="black" points="984.95,-236.7 984.95,-403.1"/>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-388.3" font-family="Arial" font-size="12.00">equipment_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-373.9" font-family="Arial" font-size="12.00"> name : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-359.5" font-family="Arial" font-size="12.00"> category : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-345.1" font-family="Arial" font-size="12.00"> model : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-330.7" font-family="Arial" font-size="12.00"> manufacturer : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-316.3" font-family="Arial" font-size="12.00"> serial_number : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-301.9" font-family="Arial" font-size="12.00"> purchase_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-287.5" font-family="Arial" font-size="12.00"> warranty_end_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-273.1" font-family="Arial" font-size="12.00"> purchase_cost : NUMERIC(10,2)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-258.7" font-family="Arial" font-size="12.00"> status : VARCHAR(20)</text>
-<text xml:space="preserve" text-anchor="start" x="992.95" y="-244.3" font-family="Arial" font-size="12.00"> location_id : INT (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="473.43" y="-214" font-family="Arial" font-weight="bold" font-size="12.00">Equipment</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-195.6" font-family="Arial" text-decoration="underline" font-size="12.00">equipment_id</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-176.2" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-157.8" font-family="Arial" font-size="12.00">category</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-139.4" font-family="Arial" font-size="12.00">model</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-121" font-family="Arial" font-size="12.00">manufacturer</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-102.6" font-family="Arial" font-size="12.00">serial_number</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-84.2" font-family="Arial" font-size="12.00">purchase_date</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-65.8" font-family="Arial" font-size="12.00">warranty_end_date</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-47.4" font-family="Arial" font-size="12.00">purchase_cost</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-29" font-family="Arial" font-size="12.00">status</text>
+<text xml:space="preserve" text-anchor="start" x="452.41" y="-10.6" font-family="Arial" font-size="12.00">location_id    (FK)</text>
+<polygon fill="none" stroke="black" points="449.41,-4 449.41,-226.8 559.45,-226.8 559.45,-4 449.41,-4"/>
 </g>
 <!-- Equipment&#45;&gt;Location -->
 <g id="edge1" class="edge">
 <title>Equipment-&gt;Location</title>
-<path fill="none" stroke="black" d="M1180.04,-319.9C1180.04,-319.9 1287.6,-319.9 1287.6,-319.9"/>
-<polygon fill="black" stroke="black" points="1287.6,-323.4 1297.6,-319.9 1287.6,-316.4 1287.6,-323.4"/>
-<text xml:space="preserve" text-anchor="middle" x="1239.59" y="-322.9" font-family="Arial" font-size="10.00">location_id</text>
+<path fill="none" stroke="black" d="M567.13,-115.4C567.13,-115.4 630.03,-115.4 630.03,-115.4"/>
+<polygon fill="black" stroke="black" points="630.03,-118.2 638.03,-115.4 630.03,-112.6 630.03,-118.2"/>
 </g>
 <!-- Technician -->
 <g id="node4" class="node">
 <title>Technician</title>
-<polygon fill="lightyellow" stroke="black" points="914.58,-471.1 914.58,-608.7 1176.68,-608.7 1176.68,-471.1 914.58,-471.1"/>
-<text xml:space="preserve" text-anchor="middle" x="951.6" y="-536.3" font-family="Arial" font-size="12.00">Technician</text>
-<polyline fill="none" stroke="black" points="988.62,-471.1 988.62,-608.7"/>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-593.9" font-family="Arial" font-size="12.00">technician_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-579.5" font-family="Arial" font-size="12.00"> first_name : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-565.1" font-family="Arial" font-size="12.00"> last_name : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-550.7" font-family="Arial" font-size="12.00"> phone : VARCHAR(20)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-536.3" font-family="Arial" font-size="12.00"> email : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-521.9" font-family="Arial" font-size="12.00"> specialization : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-507.5" font-family="Arial" font-size="12.00"> hire_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-493.1" font-family="Arial" font-size="12.00"> certification_expiry : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="996.62" y="-478.7" font-family="Arial" font-size="12.00"> hourly_rate : NUMERIC(8,2)</text>
+<text xml:space="preserve" text-anchor="start" x="473.09" y="-457.6" font-family="Arial" font-weight="bold" font-size="12.00">Technician</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-439.2" font-family="Arial" text-decoration="underline" font-size="12.00">technician_id</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-419.8" font-family="Arial" font-size="12.00">first_name</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-401.4" font-family="Arial" font-size="12.00">last_name</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-383" font-family="Arial" font-size="12.00">phone</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-364.6" font-family="Arial" font-size="12.00">email</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-346.2" font-family="Arial" font-size="12.00">specialization</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-327.8" font-family="Arial" font-size="12.00">hire_date</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-309.4" font-family="Arial" font-size="12.00">certification_expiry</text>
+<text xml:space="preserve" text-anchor="start" x="454.74" y="-291" font-family="Arial" font-size="12.00">hourly_rate</text>
+<polygon fill="none" stroke="black" points="451.74,-284.4 451.74,-470.4 557.12,-470.4 557.12,-284.4 451.74,-284.4"/>
 </g>
 <!-- SparePart -->
 <g id="node5" class="node">
 <title>SparePart</title>
-<polygon fill="lightyellow" stroke="black" points="501.77,-296.5 501.77,-405.3 745.85,-405.3 745.85,-296.5 501.77,-296.5"/>
-<text xml:space="preserve" text-anchor="middle" x="536.78" y="-347.3" font-family="Arial" font-size="12.00">SparePart</text>
-<polyline fill="none" stroke="black" points="571.8,-296.5 571.8,-405.3"/>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-390.5" font-family="Arial" font-size="12.00">part_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-376.1" font-family="Arial" font-size="12.00"> name : VARCHAR(100)</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-361.7" font-family="Arial" font-size="12.00"> description : VARCHAR(255)</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-347.3" font-family="Arial" font-size="12.00"> unit_price : NUMERIC(10,2)</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-332.9" font-family="Arial" font-size="12.00"> stock_quantity : INT</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-318.5" font-family="Arial" font-size="12.00"> minimum_stock : INT</text>
-<text xml:space="preserve" text-anchor="start" x="579.8" y="-304.1" font-family="Arial" font-size="12.00"> supplier_id : INT (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="269.05" y="-801.2" font-family="Arial" font-weight="bold" font-size="12.00">SparePart</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-782.8" font-family="Arial" text-decoration="underline" font-size="12.00">part_id</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-763.4" font-family="Arial" font-size="12.00">name</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-745" font-family="Arial" font-size="12.00">description</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-726.6" font-family="Arial" font-size="12.00">unit_price</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-708.2" font-family="Arial" font-size="12.00">stock_quantity</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-689.8" font-family="Arial" font-size="12.00">minimum_stock</text>
+<text xml:space="preserve" text-anchor="start" x="245.05" y="-671.4" font-family="Arial" font-size="12.00">supplier_id    (FK)</text>
+<polygon fill="none" stroke="black" points="242.05,-664.8 242.05,-814 352.75,-814 352.75,-664.8 242.05,-664.8"/>
 </g>
 <!-- SparePart&#45;&gt;Supplier -->
 <g id="edge2" class="edge">
 <title>SparePart-&gt;Supplier</title>
-<path fill="none" stroke="black" d="M623.92,-296.24C623.92,-237.01 623.92,-150.87 623.92,-150.87 623.92,-150.87 903,-150.87 903,-150.87"/>
-<polygon fill="black" stroke="black" points="903,-154.37 913,-150.87 903,-147.37 903,-154.37"/>
-<text xml:space="preserve" text-anchor="middle" x="845.56" y="-337.9" font-family="Arial" font-size="10.00">supplier_id</text>
+<path fill="none" stroke="black" d="M360.64,-712C360.64,-712 441.48,-712 441.48,-712"/>
+<polygon fill="black" stroke="black" points="441.48,-714.8 449.48,-712 441.48,-709.2 441.48,-714.8"/>
 </g>
 <!-- MaintenanceContract -->
 <g id="node6" class="node">
 <title>MaintenanceContract</title>
-<polygon fill="lightyellow" stroke="black" points="468.08,-0.5 468.08,-109.3 779.54,-109.3 779.54,-0.5 468.08,-0.5"/>
-<text xml:space="preserve" text-anchor="middle" x="533.11" y="-51.3" font-family="Arial" font-size="12.00">MaintenanceContract</text>
-<polyline fill="none" stroke="black" points="598.14,-0.5 598.14,-109.3"/>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-94.5" font-family="Arial" font-size="12.00">contract_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-80.1" font-family="Arial" font-size="12.00"> supplier_id : INT (FK)</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-65.7" font-family="Arial" font-size="12.00"> start_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-51.3" font-family="Arial" font-size="12.00"> end_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-36.9" font-family="Arial" font-size="12.00"> annual_cost : NUMERIC(12,2)</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-22.5" font-family="Arial" font-size="12.00"> contract_type : VARCHAR(50)</text>
-<text xml:space="preserve" text-anchor="start" x="606.14" y="-8.1" font-family="Arial" font-size="12.00"> terms : VARCHAR(500)</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-594.2" font-family="Arial" font-weight="bold" font-size="12.00">MaintenanceContract</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-575.8" font-family="Arial" text-decoration="underline" font-size="12.00">contract_id</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-556.4" font-family="Arial" font-size="12.00">supplier_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-538" font-family="Arial" font-size="12.00">start_date</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-519.6" font-family="Arial" font-size="12.00">end_date</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-501.2" font-family="Arial" font-size="12.00">annual_cost</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-482.8" font-family="Arial" font-size="12.00">contract_type</text>
+<text xml:space="preserve" text-anchor="start" x="236.39" y="-464.4" font-family="Arial" font-size="12.00">terms</text>
+<polygon fill="none" stroke="black" points="233.39,-457.8 233.39,-607 361.41,-607 361.41,-457.8 233.39,-457.8"/>
 </g>
 <!-- MaintenanceContract&#45;&gt;Supplier -->
 <g id="edge3" class="edge">
 <title>MaintenanceContract-&gt;Supplier</title>
-<path fill="none" stroke="black" d="M779.98,-73.3C779.98,-73.3 902.94,-73.3 902.94,-73.3"/>
-<polygon fill="black" stroke="black" points="902.94,-76.8 912.94,-73.3 902.94,-69.8 902.94,-76.8"/>
-<text xml:space="preserve" text-anchor="middle" x="845.56" y="-66.9" font-family="Arial" font-size="10.00">supplier_id</text>
+<path fill="none" stroke="black" d="M369.23,-599.3C369.23,-599.3 441.5,-599.3 441.5,-599.3"/>
+<polygon fill="black" stroke="black" points="441.5,-602.1 449.5,-599.3 441.5,-596.5 441.5,-602.1"/>
 </g>
 <!-- Maintenance -->
 <g id="node7" class="node">
 <title>Maintenance</title>
-<polygon fill="lightyellow" stroke="black" points="477.74,-463.9 477.74,-615.9 769.88,-615.9 769.88,-463.9 477.74,-463.9"/>
-<text xml:space="preserve" text-anchor="middle" x="520.1" y="-536.3" font-family="Arial" font-size="12.00">Maintenance</text>
-<polyline fill="none" stroke="black" points="562.46,-463.9 562.46,-615.9"/>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-601.1" font-family="Arial" font-size="12.00">maintenance_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-586.7" font-family="Arial" font-size="12.00"> equipment_id : INT (FK)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-572.3" font-family="Arial" font-size="12.00"> technician_id : INT (FK)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-557.9" font-family="Arial" font-size="12.00"> maintenance_type : VARCHAR(30)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-543.5" font-family="Arial" font-size="12.00"> description : VARCHAR(500)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-529.1" font-family="Arial" font-size="12.00"> scheduled_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-514.7" font-family="Arial" font-size="12.00"> completion_date : DATE</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-500.3" font-family="Arial" font-size="12.00"> cost : NUMERIC(10,2)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-485.9" font-family="Arial" font-size="12.00"> priority : VARCHAR(10)</text>
-<text xml:space="preserve" text-anchor="start" x="570.46" y="-471.5" font-family="Arial" font-size="12.00"> status : VARCHAR(20)</text>
+<text xml:space="preserve" text-anchor="start" x="261.06" y="-386.8" font-family="Arial" font-weight="bold" font-size="12.00">Maintenance</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-368.4" font-family="Arial" text-decoration="underline" font-size="12.00">maintenance_id</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-349" font-family="Arial" font-size="12.00">equipment_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-330.6" font-family="Arial" font-size="12.00">technician_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-312.2" font-family="Arial" font-size="12.00">maintenance_type</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-293.8" font-family="Arial" font-size="12.00">description</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-275.4" font-family="Arial" font-size="12.00">scheduled_date</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-257" font-family="Arial" font-size="12.00">completion_date</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-238.6" font-family="Arial" font-size="12.00">cost</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-220.2" font-family="Arial" font-size="12.00">priority</text>
+<text xml:space="preserve" text-anchor="start" x="238.04" y="-201.8" font-family="Arial" font-size="12.00">status</text>
+<polygon fill="none" stroke="black" points="235.04,-195.2 235.04,-399.6 359.76,-399.6 359.76,-195.2 235.04,-195.2"/>
 </g>
 <!-- Maintenance&#45;&gt;Equipment -->
 <g id="edge4" class="edge">
 <title>Maintenance-&gt;Equipment</title>
-<path fill="none" stroke="black" d="M757.92,-463.4C757.92,-410.58 757.92,-349.8 757.92,-349.8 757.92,-349.8 899.95,-349.8 899.95,-349.8"/>
-<polygon fill="black" stroke="black" points="899.95,-353.3 909.95,-349.8 899.95,-346.3 899.95,-353.3"/>
-<text xml:space="preserve" text-anchor="middle" x="845.56" y="-440.9" font-family="Arial" font-size="10.00">equipment_id</text>
+<path fill="none" stroke="black" d="M367.49,-211C367.49,-211 432.2,-211 432.2,-211"/>
+<polygon fill="black" stroke="black" points="432.2,-213.8 440.2,-211 432.2,-208.2 432.2,-213.8"/>
 </g>
 <!-- Maintenance&#45;&gt;Technician -->
 <g id="edge5" class="edge">
 <title>Maintenance-&gt;Technician</title>
-<path fill="none" stroke="black" d="M770.16,-539.9C770.16,-539.9 902.84,-539.9 902.84,-539.9"/>
-<polygon fill="black" stroke="black" points="902.84,-543.4 912.84,-539.9 902.84,-536.4 902.84,-543.4"/>
-<text xml:space="preserve" text-anchor="middle" x="845.56" y="-542.9" font-family="Arial" font-size="10.00">technician_id</text>
+<path fill="none" stroke="black" d="M367.49,-342C367.49,-342 434.24,-342 434.24,-342"/>
+<polygon fill="black" stroke="black" points="434.24,-344.8 442.24,-342 434.24,-339.2 434.24,-344.8"/>
 </g>
 <!-- PartUsage -->
 <g id="node8" class="node">
 <title>PartUsage</title>
-<polygon fill="lightyellow" stroke="black" points="44.03,-404.9 44.03,-484.9 281.44,-484.9 281.44,-404.9 44.03,-404.9"/>
-<text xml:space="preserve" text-anchor="middle" x="80.38" y="-441.3" font-family="Arial" font-size="12.00">PartUsage</text>
-<polyline fill="none" stroke="black" points="116.73,-404.9 116.73,-484.9"/>
-<text xml:space="preserve" text-anchor="start" x="124.73" y="-470.1" font-family="Arial" font-size="12.00">usage_id : INT (PK)</text>
-<text xml:space="preserve" text-anchor="start" x="124.73" y="-455.7" font-family="Arial" font-size="12.00"> maintenance_id : INT (FK)</text>
-<text xml:space="preserve" text-anchor="start" x="124.73" y="-441.3" font-family="Arial" font-size="12.00"> part_id : INT (FK)</text>
-<text xml:space="preserve" text-anchor="start" x="124.73" y="-426.9" font-family="Arial" font-size="12.00"> quantity_used : INT</text>
-<text xml:space="preserve" text-anchor="start" x="124.73" y="-412.5" font-family="Arial" font-size="12.00"> unit_cost : NUMERIC(10,2)</text>
+<text xml:space="preserve" text-anchor="start" x="47.01" y="-541.8" font-family="Arial" font-weight="bold" font-size="12.00">PartUsage</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-523.4" font-family="Arial" text-decoration="underline" font-size="12.00">usage_id</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-504" font-family="Arial" font-size="12.00">maintenance_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-485.6" font-family="Arial" font-size="12.00">part_id    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-467.2" font-family="Arial" font-size="12.00">quantity_used</text>
+<text xml:space="preserve" text-anchor="start" x="11" y="-448.8" font-family="Arial" font-size="12.00">unit_cost</text>
+<polygon fill="none" stroke="black" points="8,-442.2 8,-554.6 145.39,-554.6 145.39,-442.2 8,-442.2"/>
 </g>
 <!-- PartUsage&#45;&gt;SparePart -->
 <g id="edge7" class="edge">
 <title>PartUsage-&gt;SparePart</title>
-<path fill="none" stroke="black" d="M281.8,-434.6C418.45,-434.6 623.92,-434.6 623.92,-434.6 623.92,-434.6 623.92,-417.31 623.92,-417.31"/>
-<polygon fill="black" stroke="black" points="627.42,-417.31 623.92,-407.31 620.42,-417.31 627.42,-417.31"/>
-<text xml:space="preserve" text-anchor="middle" x="396.78" y="-381.9" font-family="Arial" font-size="10.00">part_id</text>
+<path fill="none" stroke="black" d="M76.48,-558.59C76.48,-629.98 76.48,-739.4 76.48,-739.4 76.48,-739.4 224.58,-739.4 224.58,-739.4"/>
+<polygon fill="black" stroke="black" points="224.58,-742.2 232.58,-739.4 224.58,-736.6 224.58,-742.2"/>
 </g>
 <!-- PartUsage&#45;&gt;Maintenance -->
 <g id="edge6" class="edge">
 <title>PartUsage-&gt;Maintenance</title>
-<path fill="none" stroke="black" d="M281.77,-474.4C281.77,-474.4 466.11,-474.4 466.11,-474.4"/>
-<polygon fill="black" stroke="black" points="466.11,-477.9 476.11,-474.4 466.11,-470.9 466.11,-477.9"/>
-<text xml:space="preserve" text-anchor="middle" x="396.78" y="-513.9" font-family="Arial" font-size="10.00">maintenance_id</text>
+<path fill="none" stroke="black" d="M153.3,-446C217.06,-446 297.48,-446 297.48,-446 297.48,-446 297.48,-412.93 297.48,-412.93"/>
+<polygon fill="black" stroke="black" points="300.28,-412.93 297.48,-404.93 294.68,-412.93 300.28,-412.93"/>
 </g>
 <!-- EquipmentContract -->
 <g id="node9" class="node">
 <title>EquipmentContract</title>
-<polygon fill="lightyellow" stroke="black" points="0,-146.3 0,-197.5 325.47,-197.5 325.47,-146.3 0,-146.3"/>
-<text xml:space="preserve" text-anchor="middle" x="59.36" y="-168.3" font-family="Arial" font-size="12.00">EquipmentContract</text>
-<polyline fill="none" stroke="black" points="118.72,-146.3 118.72,-197.5"/>
-<text xml:space="preserve" text-anchor="start" x="126.72" y="-182.7" font-family="Arial" font-size="12.00">equipment_id : INT (PK, FK)</text>
-<text xml:space="preserve" text-anchor="start" x="126.72" y="-168.3" font-family="Arial" font-size="12.00"> contract_id : INT (PK, FK)</text>
-<text xml:space="preserve" text-anchor="start" x="126.72" y="-153.9" font-family="Arial" font-size="12.00"> coverage_details : VARCHAR(255)</text>
+<text xml:space="preserve" text-anchor="start" x="21.03" y="-356.4" font-family="Arial" font-weight="bold" font-size="12.00">EquipmentContract</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-338" font-family="Arial" text-decoration="underline" font-size="12.00">equipment_id</text>
+<text xml:space="preserve" text-anchor="start" x="89.39" y="-338" font-family="Arial" font-size="12.00">    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-319.6" font-family="Arial" text-decoration="underline" font-size="12.00">contract_id</text>
+<text xml:space="preserve" text-anchor="start" x="76.04" y="-319.6" font-family="Arial" font-size="12.00">    (FK)</text>
+<text xml:space="preserve" text-anchor="start" x="17.34" y="-300.2" font-family="Arial" font-size="12.00">coverage_details</text>
+<polygon fill="none" stroke="black" points="14.34,-293.6 14.34,-369.2 139.05,-369.2 139.05,-293.6 14.34,-293.6"/>
 </g>
 <!-- EquipmentContract&#45;&gt;Equipment -->
 <g id="edge8" class="edge">
 <title>EquipmentContract-&gt;Equipment</title>
-<path fill="none" stroke="black" d="M303.92,-197.89C303.92,-225.77 303.92,-266.1 303.92,-266.1 303.92,-266.1 899.8,-266.1 899.8,-266.1"/>
-<polygon fill="black" stroke="black" points="899.8,-269.6 909.8,-266.1 899.8,-262.6 899.8,-269.6"/>
-<text xml:space="preserve" text-anchor="middle" x="623.81" y="-228.9" font-family="Arial" font-size="10.00">equipment_id</text>
+<path fill="none" stroke="black" d="M76.48,-289.79C76.48,-222.09 76.48,-95.6 76.48,-95.6 76.48,-95.6 432.23,-95.6 432.23,-95.6"/>
+<polygon fill="black" stroke="black" points="432.23,-98.4 440.23,-95.6 432.23,-92.8 432.23,-98.4"/>
 </g>
 <!-- EquipmentContract&#45;&gt;MaintenanceContract -->
 <g id="edge9" class="edge">
 <title>EquipmentContract-&gt;MaintenanceContract</title>
-<path fill="none" stroke="black" d="M325.55,-155.93C400.44,-155.93 472.92,-155.93 472.92,-155.93 472.92,-155.93 472.92,-121.07 472.92,-121.07"/>
-<polygon fill="black" stroke="black" points="476.42,-121.07 472.92,-111.07 469.42,-121.07 476.42,-121.07"/>
-<text xml:space="preserve" text-anchor="middle" x="396.78" y="-119.9" font-family="Arial" font-size="10.00">contract_id</text>
+<path fill="none" stroke="black" d="M146.84,-331.4C169.78,-331.4 189.48,-331.4 189.48,-331.4 189.48,-331.4 189.48,-506.2 189.48,-506.2 189.48,-506.2 215.9,-506.2 215.9,-506.2"/>
+<polygon fill="black" stroke="black" points="215.9,-509 223.9,-506.2 215.9,-503.4 215.9,-509"/>
 </g>
 </g>
 </svg>
