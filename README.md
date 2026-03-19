@@ -2,8 +2,8 @@
 
 ## Project Report - Stage 1 (שלב א)
 
-**Authors:** [Your Name 1], [Your Name 2]
-**Student IDs:** XXXX, XXXX
+**Authors:** Yair Chocron, Refael Sharvit
+**Student IDs:** 214895013, 1894544
 **System:** Restaurant Management
 **Module:** Equipment & Maintenance
 **Database:** PostgreSQL
@@ -49,26 +49,22 @@ The application contains **9 screens**:
 ### Screen 1: Login
 Split-panel login screen with system branding on the left and authentication form on the right.
 
-<!-- ![Login Screen](images/Stage1/screen_login.jpg) -->
-> *Insert screenshot of Login screen here*
+![Login Screen](images/Stage1/screen_login.jpg)
 
 ### Screen 2: Dashboard
 Main dashboard showing key metrics: total equipment count, active/under-repair equipment, critical maintenance alerts, active technicians, low-stock parts, active contracts, and monthly maintenance cost. Also displays a table of recent maintenance operations.
 
-<!-- ![Dashboard](images/Stage1/screen_dashboard.jpg) -->
-> *Insert screenshot of Dashboard here*
+![Dashboard](images/Stage1/screen_dashboard.jpg)
 
 ### Screen 3: Equipment Management
 Full CRUD interface for managing restaurant equipment. Includes search/filter by category, status, and location. Table displays all equipment attributes including purchase date, warranty end date, cost, and current status. Includes an "Add Equipment" form.
 
-<!-- ![Equipment](images/Stage1/screen_equipment.jpg) -->
-> *Insert screenshot of Equipment screen here*
+![Equipment](images/Stage1/screen_equipment.jpg)
 
 ### Screen 4: Maintenance Management
 Interface for managing all maintenance operations. Filter by maintenance type (Preventive/Corrective/Emergency/Inspection), priority, status, and date range. Displays scheduled date, completion date, cost, and assigned technician.
 
-<!-- ![Maintenance](images/Stage1/screen_maintenance.jpg) -->
-> *Insert screenshot of Maintenance screen here*
+![Maintenance](images/Stage1/screen_maintenance.jpg)
 
 ### Screen 5: Technician Management
 Manage maintenance technicians with search by name and specialization filter. Displays hire date, certification expiry, hourly rate, and contact information.
