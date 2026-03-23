@@ -9,11 +9,14 @@
 -- Independent tables (no foreign key dependencies)
 -- =====================
 
--- Location (500 rows) — generated via Generatedata
-\i generatedataFiles/Location.sql
+-- RestaurantArea (500 rows) — generated via Generatedata
+\i generatedataFiles/RestaurantArea.sql
 
--- Supplier (500 rows) — generated via Mockaroo
-\i mockarooFiles/Supplier.sql
+-- EquipmentType (500 rows) — generated via Generatedata
+\i generatedataFiles/EquipmentType.sql
+
+-- ServiceSupplier (500 rows) — generated via Mockaroo
+\i mockarooFiles/ServiceSupplier.sql
 
 -- Technician (500 rows) — generated via Mockaroo
 \i mockarooFiles/Technician.sql
@@ -23,29 +26,25 @@
 -- =====================
 
 -- Equipment (500 rows) — generated via Python script
--- Depends on: Location
+-- Depends on: EquipmentType, RestaurantArea
 \i Programing/Equipment_Insert.sql
 
 -- SparePart (500 rows) — generated via Mockaroo
--- Depends on: Supplier
+-- Depends on: ServiceSupplier
 \i mockarooFiles/SparePart.sql
-
--- MaintenanceContract (500 rows) — generated via Generatedata
--- Depends on: Supplier
-\i generatedataFiles/MaintenanceContract.sql
 
 -- =====================
 -- Tables with multiple dependencies
 -- =====================
 
 -- Maintenance (20,000 rows) — generated via Python script
--- Depends on: Equipment, Technician
+-- Depends on: Equipment, ServiceSupplier
 \i Programing/Maintenance_Insert.sql
 
--- PartUsage (20,000 rows) — generated via Python script
--- Depends on: Maintenance, SparePart
-\i Programing/PartUsage_Insert.sql
+-- Fault (20,000 rows) — generated via Python script
+-- Depends on: Equipment, Technician
+\i Programing/Fault_Insert.sql
 
--- EquipmentContract (500 rows) — generated via Generatedata
--- Depends on: Equipment, MaintenanceContract
-\i generatedataFiles/EquipmentContract.sql
+-- Uses (500 rows) — generated via Generatedata
+-- Depends on: Maintenance, SparePart
+\i generatedataFiles/Uses.sql
