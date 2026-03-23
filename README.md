@@ -104,7 +104,7 @@ Reports dashboard with 6 report types: Maintenance Cost Report, Equipment Status
 
 The database was designed using **ERDPlus** (erdplus.com). The Entity-Relationship Diagram contains **7 entities** and **7 relationships** (including 2 many-to-many relationships that generate 2 additional relationship tables).
 
-![ERD Diagram](images/Stage1/ERD.svg)
+![ERD Diagram](images/Stage1/ERD.png)
 
 ### Entities (7)
 
@@ -147,7 +147,7 @@ The database was designed using **ERDPlus** (erdplus.com). The Entity-Relationsh
 
 The DSD (Data Structure Diagram) was generated from the ERD using ERDPlus. It shows the relational schema with all tables, columns, primary keys, and foreign key references.
 
-![DSD Diagram](images/Stage1/DSD.svg)
+![DSD Diagram](images/Stage1/DSD.png)
 
 ### Resulting Tables (9)
 
