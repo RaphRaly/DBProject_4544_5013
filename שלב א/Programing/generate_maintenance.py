@@ -1,6 +1,7 @@
 """
 Generate 20,000 INSERT statements for the Maintenance table.
 Method: Python scripting
+New schema: maintenance_id, date, type, cost, notes, equipment_id, supplier_id
 """
 import random
 from datetime import datetime, timedelta
@@ -8,12 +9,10 @@ from datetime import datetime, timedelta
 random.seed(123)
 
 NUM_EQUIPMENT = 500
-NUM_TECHNICIANS = 500
+NUM_SUPPLIERS = 500
 TYPES = ['Preventive', 'Corrective', 'Emergency', 'Inspection']
-PRIORITIES = ['Low', 'Medium', 'Medium', 'High', 'Critical']  # Medium weighted higher
-STATUSES = ['Scheduled', 'In Progress', 'Completed', 'Completed', 'Completed', 'Cancelled']
 
-DESCRIPTIONS = {
+NOTES = {
     'Preventive': [
         'Quarterly inspection and cleaning',
         'Annual filter replacement',
@@ -76,27 +75,18 @@ def escape_sql(s):
 with open('Maintenance_Insert.sql', 'w', encoding='utf-8') as f:
     for i in range(1, 20001):
         eq_id = random.randint(1, NUM_EQUIPMENT)
-        tech_id = random.randint(1, NUM_TECHNICIANS)
+        sup_id = random.randint(1, NUM_SUPPLIERS)
         m_type = random.choice(TYPES)
-        desc = random.choice(DESCRIPTIONS[m_type])
-        scheduled = random_date(2022, 2025)
-        status = random.choice(STATUSES)
-        priority = random.choice(PRIORITIES)
+        notes = random.choice(NOTES[m_type])
+        m_date = random_date(2022, 2025)
+        cost = round(random.uniform(50, 5000), 2)
+        date_str = m_date.strftime('%Y-%m-%d')
 
-        if status == 'Completed':
-            days_to_complete = random.randint(0, 14)
-            completion = scheduled + timedelta(days=days_to_complete)
-            completion_str = f"TO_DATE('{completion.strftime('%Y-%m-%d')}','YYYY-MM-DD')"
-        else:
-            completion_str = "NULL"
+        f.write(f"INSERT INTO Maintenance (maintenance_id, date, type, cost, notes, "
+                f"equipment_id, supplier_id) VALUES "
+                f"({i}, '{date_str}', '{m_type}', {cost}, '{escape_sql(notes)}', "
+                f"{eq_id}, {sup_id});\n")
 
-        cost = round(random.uniform(50, 5000), 2) if status == 'Completed' else round(random.uniform(50, 5000), 2)
-        scheduled_str = scheduled.strftime('%Y-%m-%d')
-
-        f.write(f"INSERT INTO Maintenance (maintenance_id, equipment_id, technician_id, maintenance_type, "
-                f"description, scheduled_date, completion_date, cost, priority, status) VALUES "
-                f"({i}, {eq_id}, {tech_id}, '{m_type}', '{escape_sql(desc)}', "
-                f"TO_DATE('{scheduled_str}','YYYY-MM-DD'), {completion_str}, "
-                f"{cost}, '{priority}', '{status}');\n")
+print("Generated 20,000 Maintenance INSERT statements -> Maintenance_Insert.sql")
 
 print("Generated 20,000 Maintenance INSERT statements -> Maintenance_Insert.sql")

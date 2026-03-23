@@ -3,12 +3,12 @@
 -- selectAll.sql
 -- ============================================
 
-SELECT * FROM Location;
-SELECT * FROM Supplier;
-SELECT * FROM Equipment;
+SELECT * FROM RestaurantArea;
+SELECT * FROM EquipmentType;
+SELECT * FROM ServiceSupplier;
 SELECT * FROM Technician;
+SELECT * FROM Equipment;
 SELECT * FROM SparePart;
-SELECT * FROM MaintenanceContract;
 SELECT * FROM Maintenance;
-SELECT * FROM PartUsage;
-SELECT * FROM EquipmentContract;
+SELECT * FROM Fault;
+SELECT * FROM Uses;
